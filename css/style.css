@@ -83,7 +83,7 @@
     font-family: var(--main-font);
 }
 .logo img {
-    height: 40px;
+    height: 60px;
     border-radius: 5px;
 }
 .main-heading {
@@ -118,7 +118,6 @@
     background-color: var(--main-color);
     bottom: -37px;
   }
- 
 /* start header  */
 header {
     position: absolute;
@@ -131,9 +130,12 @@ header .container {
     justify-content: space-between;
     align-items: center;
     /* position: relative; */
-    min-height: 50px;
+    /* min-height: 50px; */
 }
 @media (max-width: 767px) {
+    header {
+        margin-top: 20px;
+    }
     header .container {
         flex-direction: column;
         justify-content: space-between;
@@ -145,7 +147,7 @@ header .container::before {
     height: 3px;
     background-color: var(--secondary-color);
     width: calc(100% - 30px);
-    bottom: 0;
+    bottom: 15px;
     left: 15px;
 }
 header .container::after {
@@ -156,7 +158,7 @@ header .container::after {
     border-radius: 50%;
     border: 3px solid var(--secondary-color);
     background-color: var(--main-color);
-    bottom: -8px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -201,7 +203,26 @@ header ul li a:hover {
     background-color: var(--main-color);
     color: var(--secondary-color);
 }
-.go-top {
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: var(--main-color); /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 5px; /* Some padding */
+    border-radius: 50%; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+    background-color: var(--secondary-color); /* Add a dark-grey background on hover */
+  }
+/* .go-top {
     color: var(--main-color);
     position: fixed;
     left: -30px;
@@ -215,7 +236,7 @@ header ul li a:hover {
 }
 .go-top.show {
     left: 10px;
-}
+} */
 
 /* end header  */
 
@@ -247,7 +268,7 @@ header ul li a:hover {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 80px;
+    top: 85px;
     background-size: contain;
     background-repeat: no-repeat;
     /* opacity: 0.5; */
@@ -275,7 +296,7 @@ header ul li a:hover {
         max-width: 100%;
     }
     .landing .overlay .adv {
-        top: 100px;
+        top: 145px;
     }
 }
 .landing .text h2 {
@@ -290,6 +311,15 @@ header ul li a:hover {
     line-height: 2;
 }
 /* end landing  */
+
+/* start carousel  */
+.carousel {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
+}
+
+/* end carousel  */
 
 /* start menu  */
 .menu {
@@ -350,7 +380,7 @@ header ul li a:hover {
     border-radius: 50%;
 }
 .menu .menu-content .card:hover .info {
-    bottom: 35%;
+    bottom: 30%;
 }
 .menu .menu-content .card .info h3 {
     margin: 0;
@@ -449,6 +479,7 @@ header ul li a:hover {
 .about .container .about-content .about-img img {
     max-width: 100%;
     border-radius: 50%;
+    animation: about-spinner 5s infinite linear;
 }
 .about .container .about-content .text {
     flex-basis: calc(100% - 500px);
@@ -473,200 +504,96 @@ header ul li a:hover {
     padding-bottom: var(--section-padding);
     background-color: white;
 }
-.slider-container {
-    margin: 10px auto;
-    width: 100%;
-    height: 800px;
+/* Position the image container (needed to position the left and right arrows) */
+.portfolio .container-fluid {
     position: relative;
-}
-.slider-container img {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s;
-    z-index: 1;
-    width: 100%;
-    margin: auto;
-}
-.slider-container img.active {
-    opacity: 1;
-}
-.slider-container .slide-number {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 5px 10px;
-    z-index: 2;
-    border-radius: 6px;
-}
-.slider-controls {
-    width: 100%;
-    margin: auto;
-}
-.slider-controls .prev,
-.slider-controls .next {
-    background-color: #009688;
-    color: #fff;
-    font-size: 16px;
-    text-align: center;
+    padding: 0;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
     cursor: pointer;
-    border-radius: 4px;
-    padding: 5px;
-    user-select: none;
-    width: 20%;
-}
-.slider-controls .prev {
-    float: left;
-}
-.slider-controls .next {
-    float: right;
-}
-.slider-controls .prev.disabled,
-.slider-controls .next.disabled {
-    background-color: rgba(0, 150, 136, 0.5);
-    cursor: no-drop;
-}
-.slider-controls .indicators {
-    width: 60%;
-    float: left;
-}
-.slider-controls .indicators ul {
-    list-style: none;
-    margin: 0;
-    text-align: center;
-}
-.slider-controls .indicators ul li {
-    display: inline-block;
-    background-color: #f6f6f6f6;
-    color: #333;
+  }
+  
+  /* Next & previous buttons */
+  .portfolio .prev,
+  .portfolio .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
     font-weight: bold;
-    height: 28px;
-    width: 28px;
-    border-radius: 4px;
-    margin: 0 2px;
-    line-height: 28px;
-    cursor: pointer;
-}
-.slider-controls .indicators ul li.active {
-    background-color: #009688;
-    color: #fff;
-}
-@media (max-width: 991px) {
-    .slider-container {
-        height: 710px;
-    }
-}
-@media (max-width: 767px) {
-    .slider-container {
-        height: 565px;
-    }
-    .slider-container {
-        margin: o;
-        width: 100%;
-        position: relative;
-    }
-    .slider-controls .prev,
-    .slider-controls .next {
-        font-size: 12px;
-        width: 15%;
-    }
-    .slider-controls .indicators {
-        width: 70%;
-        float: left;
-    }
-    .slider-controls .indicators ul li {
-        height: 25px;
-        width: 25px;
-        border-radius: 4px;
-        margin: 0 2px;
-        line-height: 28px;
-        cursor: pointer;
-    }
-}
-/* end portfolio  */
-
-/* start our portfolio  */
-  .our-portfolio .slider-container2 {
-    margin: 10px auto;
-    width: 800px;
-    height: 250px;
-    position: relative;
-  }
-  .our-portfolio .slider-container2 img {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s;
-    z-index: 1;
-  }
-  .our-portfolio .slider-container2 img.active {
-    opacity: 1;
-  }
-  .our-portfolio .slider-container2 .slide-number2 {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    background-color: rgba(0, 0, 0, .6);
-    color: #FFF;
-    padding: 5px 10px;
     font-size: 20px;
-    z-index: 2;
-    border-radius: 6px;
-  }
-  .our-portfolio .slider-controls2 {
-    width: 800px;
-    margin: auto;
-    overflow: hidden;
-  }
-  .our-portfolio .slider-controls2 .prev2,
-  .our-portfolio .slider-controls2 .next2 {
-    background-color: #009688;
-    color: #FFF;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 4px;
-    padding: 5px;
+    border-radius: 0 3px 3px 0;
     user-select: none;
-    width: 20%;
+    -webkit-user-select: none;
   }
-  .our-portfolio .slider-controls2 .prev2 {
-    float: left;
+  
+  /* Position the "prev button" to the right */
+  .portfolio .prev {
+    right: 0;
+    border-radius: 3px 0 0 3px;
   }
-  .our-portfolio .slider-controls2 .next2 {
-    float: right;
+  /* Position the "next button" to the left */
+  .portfolio .next {
+    left: 0;
+    border-radius: 3px 0 0 3px;
   }
-  .our-portfolio .slider-controls2 .prev2.disabled,
-  .our-portfolio .slider-controls2 .next2.disabled {
-    background-color: rgba(0, 150, 136, 0.5);
-    cursor: no-drop;
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .portfolio .prev:hover,
+  .portfolio .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
   }
-  .our-portfolio .slider-controls2 .indicators2 {
-    width: 60%;
-    float: left;
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
   }
-  .our-portfolio .slider-controls2 .indicators2 ul {
-    list-style: none;
-    margin: 0;
+  
+  /* Container for image text */
+  .caption-container {
     text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
   }
-  .our-portfolio .slider-controls2 .indicators2 ul li {
-    display: inline-block;
-    background-color: #F6F6F6;
-    color: #333;
-    font-weight: bold;
-    height: 28px;
-    width: 28px;
-    border-radius: 4px;
-    margin: 0 2px;
-    line-height: 28px;
-    cursor: pointer;
+  
+  .portfolio .row:after {
+    content: "";
+    display: table;
+    clear: both;
   }
-  .our-portfolio .slider-controls2 .indicators2 ul li.active {
-    background-color: #009688;
-    color: #FFF;
+  
+  /* Six columns side by side */
+  .portfolio .column {
+    float: left;
+    width: 16.66%;
+    padding: 0;
   }
-/* end our portfolio  */
+  
+  /* Add a transparency effect for thumnbail images */
+  .portfolio .demo {
+    opacity: 0.6;
+  }
+  
+  .portfolio .active,
+  .portfolio .demo:hover {
+    opacity: 1;
+  }
+/* end portfolio  */
 
 /* start contact  */
 .contact {
@@ -757,3 +684,13 @@ footer .container span {
     font-family: var(--main-font);
 }
 /* end footer  */
+
+/* start animation  */
+@keyframes about-spinner {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+/* end animation  */

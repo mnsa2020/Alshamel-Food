@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/Normalize.css">
     <!-- Font Awesome Library -->
     <link rel="stylesheet" href="css/all.min.css">
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Main Template CSS File -->
     <link rel="stylesheet" href="css/style.css">
     <!-- website icon -->
@@ -41,8 +43,9 @@
 
     <!-- start landing  -->
     <div class="landing" id="landing">
-        <i class="fa-solid fa-circle-up fa-2x go-top"></i>
-
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+            <i class="fa-solid fa-circle-up fa-2x go-top"></i>
+        </button>
         <div class="overlay">
             <div class="adv"></div>
         </div>
@@ -57,21 +60,21 @@
                 <!-- <p>All You Need in One Place</p> -->
             </div>
             <div class="menu-content">
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/fish.png" alt="">
                     <div class="info">
                         <h3>سمك</h3>
                         <p>Fish Curry</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/chicken-meal.png" alt="">
                     <div class="info">
                         <h3>كاري الدجاج</h3>
                         <p>Chicken Curry</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/biryani.png" alt="">
                     <div class="info">
                         <h3>برياني</h3>
@@ -79,35 +82,35 @@
                     </div>
                 </div>
                 
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/chana-masala1.png" alt="">
                     <div class="info">
                         <h3>إيدام ماسالا</h3>
                         <p>Chana Masala</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/macaroni.png" alt="">
                     <div class="info">
                         <h3>معكرونة</h3>
                         <p>Macaroni</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/sheep.png" alt="">
                     <div class="info">
                         <h3>ضأن</h3>
                         <p>Sheep</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/curry.png" alt="">
                     <div class="info">
                         <h3>إيدام الكاري</h3>
                         <p>Curry</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/curry-bazila.png" alt="">
                     <div class="info">
                         <h3>إيدام بازيلا</h3>
@@ -115,28 +118,28 @@
                     </div>
                 </div>
                 
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/masala-dosa.png" alt="">
                     <div class="info">
                         <h3>ماسالا دوسا</h3>
                         <p>Dosa Masala</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/sea-food.png" alt="">
                     <div class="info">
                         <h3>سي فوود</h3>
                         <p>Sea Food</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <img src="images/soup.png" alt="">
                     <div class="info">
                         <h3>شوربة</h3>
                         <p>Soap</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <embed src="pdf/menu.pdf" type="" width="320" height="320">
                     <div class="info">
                         <a href="pdf/menu.pdf" target="_blank">
@@ -171,37 +174,77 @@
     <!-- end about  -->
 
 <!-- start Portfolio  -->
-   <div id="portfolio" class="portfolio">
-    <div class="container">
+    <div id="portfolio" class="portfolio">
         <div class="main-heading">
             <h2>معرض الصور</h2>
             <!-- <p>Don't Histate to contact Us</p> -->
         </div>
-        <div class="slider-container">
-            <div id="slide-number" class="slide-number"></div>
-            <img src="images/01.JPG" alt="">
-            <img src="images/02.JPG" alt="">
-            <img src="images/03.JPG" alt="">
-            <img src="images/04.JPG" alt="">
-            <img src="images/05.JPG" alt="">
-            <img src="images/06.JPG" alt="">
-            <img src="images/07.JPG" alt="">
-        </div>
-        <div class="slider-controls">
-            <span id="prev" class="prev">السابق</span>
-            <span id="indicators" class="indicators">
-                <!-- <ul>
-                <li class="active">1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                </ul> -->
-            </span>
-            <span id="next" class="next">التالي</span>
+        <!-- Container for the image gallery -->
+        <div class="container-fluid">
+
+            <!-- Full-width images with number text -->
+            <div class="mySlides">
+            <div class="numbertext">1 / 6</div>
+                <img src="images/01.jpg" style="width:100%">
+            </div>
+        
+            <div class="mySlides">
+            <div class="numbertext">2 / 6</div>
+                <img src="images/02.jpg" style="width:100%">
+            </div>
+        
+            <div class="mySlides">
+            <div class="numbertext">3 / 6</div>
+                <img src="images/03.jpg" style="width:100%">
+            </div>
+        
+            <div class="mySlides">
+            <div class="numbertext">4 / 6</div>
+                <img src="images/04.jpg" style="width:100%">
+            </div>
+        
+            <div class="mySlides">
+            <div class="numbertext">5 / 6</div>
+                <img src="images/05.jpg" style="width:100%">
+            </div>
+        
+            <div class="mySlides">
+            <div class="numbertext">6 / 6</div>
+                <img src="images/06.jpg" style="width:100%">
+            </div>
+        
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+            <!-- Image text -->
+            <div class="caption-container">
+            <p id="caption"></p>
+            </div>
+        
+            <!-- Thumbnail images -->
+            <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="images/01.jpg" style="width:100%" onclick="currentSlide(1)" alt="Alshamel Food">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/02.jpg" style="width:100%" onclick="currentSlide(2)" alt="Alshamel Food">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/03.jpg" style="width:100%" onclick="currentSlide(3)" alt="Alshamel Food">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/04.jpg" style="width:100%" onclick="currentSlide(4)" alt="Alshamel Food">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/05.jpg" style="width:100%" onclick="currentSlide(5)" alt="Alshamel Food">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/06.jpg" style="width:100%" onclick="currentSlide(6)" alt="Alshamel Food">
+            </div>
+            </div>
         </div>
     </div>
-   </div>
 <!-- end Portfolio  -->
 
     <!-- start contact  -->
@@ -259,6 +302,8 @@
     </footer>
     <!-- end footer  -->
 
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 
 </body>
